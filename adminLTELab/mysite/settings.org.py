@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os  # 추가
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n9@)#@8jvjwpki2buu)dd1tsl5s#-n=))ivng%ad6cmx5z^#b2'
+SECRET_KEY = 'django-insecure-vjxbb8o%9v+x-$zz86s8k!(od@v=pwu$40f4bv98&ns-ebnd%1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.18.163', 'localhost', '127.0.0.1'] # 변경
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.18.129', 'localhost', '127.0.0.1']    # 변경
 
 
 # Application definition
@@ -38,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls.apps.PollsConfig',   # 추가
-    'books.apps.BooksConfig',   # 추가
+    'polls.apps.PollsConfig',		# 추가
+    #'books.apps.BooksConfig',   # 추가
+    'books',
 ]
 
 MIDDLEWARE = [
@@ -57,8 +59,8 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [],
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 추가
+        #'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,13 +81,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',   
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django',
         'USER': 'django',
         'PASSWORD': 'django',
         'HOST': '127.0.0.1',
         'PORT': '3306',
- }
+    }
 }
 
 
@@ -126,8 +128,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'www_dir','static')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+########################################
+# maxlee
+""" import os
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"), 
+] """
+#########################################

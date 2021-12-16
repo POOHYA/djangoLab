@@ -8,13 +8,11 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 """
 
 import os
+import sys
+sys.path.append('C:\\dev\\workspace\\Myjango\\adminLTELab')
 
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 
 application = get_wsgi_application()
-
-
-import sys
-sys.path.append('D:/prod/Apache24/adminLTE')
